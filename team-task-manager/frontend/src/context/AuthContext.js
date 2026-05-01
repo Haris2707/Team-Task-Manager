@@ -73,38 +73,42 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = async (credentials) => {
-    try {
-      dispatch({ type: 'SET_LOADING', payload: true });
-      const response = await authAPI.login(credentials);
+ const login = async (credentials) => {
+  try {
+    dispatch({ type: 'SET_LOADING', payload: true });
 
-console.log("LOGIN RESPONSE:", response.data); // 👈 ADD THIS LINE
+    const response = await authAPI.login(credentials);
 
-const { token, ...user } = response.data;
-      
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-      
-      dispatch({
-        type: 'LOGIN_SUCCESS',
-        payload: { user, token }
-      });
-      
-      return { success: true };
-    } catch (error) {
-      dispatch({
-        type: 'AUTH_ERROR',
-        payload: error.response?.data?.message || 'Login failed'
-      });
-      return { success: false, error: error.response?.data?.message || 'Login failed' };
-    }
-  };
+    console.log("LOGIN RESPONSE:", response.data);
+
+    const { token, _id, name, email, role } = response.data;
+    const user = { _id, name, email, role };
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+
+    dispatch({
+      type: 'LOGIN_SUCCESS',
+      payload: { user, token }
+    });
+
+    return { success: true };
+  } catch (error) {
+    dispatch({
+      type: 'AUTH_ERROR',
+      payload: error.response?.data?.message || 'Login failed'
+    });
+    return { success: false, error: error.response?.data?.message || 'Login failed' };
+  }
+};
 
   const signup = async (userData) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       const response = await authAPI.signup(userData);
-      const { token, ...user } = response.data;
+     const { token, _id, name, email, role } = response.data;
+
+const user = { _id, name, email, role };
       
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
