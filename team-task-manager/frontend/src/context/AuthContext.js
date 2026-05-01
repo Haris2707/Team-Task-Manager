@@ -77,7 +77,10 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       const response = await authAPI.login(credentials);
-      const { token, ...user } = response.data;
+
+console.log("LOGIN RESPONSE:", response.data); // 👈 ADD THIS LINE
+
+const { token, ...user } = response.data;
       
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
