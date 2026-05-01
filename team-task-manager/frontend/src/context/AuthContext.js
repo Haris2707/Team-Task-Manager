@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
 
     const response = await authAPI.login(credentials);
 
-    console.log("LOGIN RESPONSE:", response.data);
+   
 
     const { token, _id, name, email, role } = response.data;
     const user = { _id, name, email, role };
