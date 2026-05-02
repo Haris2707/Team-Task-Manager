@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { tasksAPI } from '../api/tasks';
-import { FiCheckSquare, FiClock, FiAlertTriangle, FiTrendingUp, FiUsers, FiFolder } from 'react-icons/fi';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -37,28 +36,24 @@ const Dashboard = () => {
     {
       title: 'Total Tasks',
       value: stats?.total || 0,
-      icon: FiCheckSquare,
       color: '#667eea',
       bgColor: '#f0f2ff'
     },
     {
       title: 'In Progress',
       value: stats?.inProgress || 0,
-      icon: FiClock,
       color: '#f59e0b',
       bgColor: '#fffbeb'
     },
     {
       title: 'Completed',
       value: stats?.done || 0,
-      icon: FiTrendingUp,
       color: '#10b981',
       bgColor: '#ecfdf5'
     },
     {
       title: 'Overdue',
       value: stats?.overdue || 0,
-      icon: FiAlertTriangle,
       color: '#ef4444',
       bgColor: '#fef2f2'
     }
@@ -88,7 +83,6 @@ const Dashboard = () => {
                 className="stat-icon"
                 style={{ backgroundColor: stat.bgColor, color: stat.color }}
               >
-                <stat.icon />
               </div>
             </div>
           </div>
@@ -142,16 +136,13 @@ const Dashboard = () => {
           <h2>Quick Actions</h2>
           <div className="quick-actions">
             <a href="/projects" className="action-card">
-              <FiFolder />
               <span>Manage Projects</span>
             </a>
             <a href="/tasks" className="action-card">
-              <FiCheckSquare />
               <span>View All Tasks</span>
             </a>
             {user?.role === 'admin' && (
               <a href="/users" className="action-card">
-                <FiUsers />
                 <span>Manage Users</span>
               </a>
             )}
