@@ -50,7 +50,6 @@ const Signup = () => {
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
             <div className="input-wrapper">
-              <FiUser className="input-icon" />
               <input
                 type="text"
                 id="name"
@@ -66,7 +65,6 @@ const Signup = () => {
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <div className="input-wrapper">
-              <FiMail className="input-icon" />
               <input
                 type="email"
                 id="email"
@@ -82,7 +80,6 @@ const Signup = () => {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <div className="input-wrapper">
-              <FiLock className="input-icon" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
@@ -97,7 +94,7 @@ const Signup = () => {
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
+                {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
           </div>
@@ -105,7 +102,6 @@ const Signup = () => {
           <div className="form-group">
             <label htmlFor="role">Role</label>
             <div className="input-wrapper">
-              <FiUserCheck className="input-icon" />
               <select
                 id="role"
                 name="role"
