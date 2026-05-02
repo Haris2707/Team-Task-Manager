@@ -343,7 +343,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Haris Ali**
 - GitHub: [Haris2707](https://github.com/Haris2707)
 - LinkedIn: [Haris Ali](https://linkedin.com/in/haris-ali-3b4316251/)
 - Email: 2k22.cse.2212475@gmail.com
