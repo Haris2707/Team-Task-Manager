@@ -55,8 +55,8 @@ A modern, full-stack web application for team collaboration and task management.
 ## 🎯 Demo
 
 ### Live Application
-- **Frontend**: [Your Vercel URL]
-- **Backend API**: [Your Railway URL]
+- **Frontend**: [https://tranquil-luck-production-6a8e.up.railway.app/login]
+- **Backend API**: [https://stellar-upliftment-production-4f29.up.railway.app]
 
 ### Test Credentials
 ```
