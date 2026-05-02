@@ -43,7 +43,6 @@ const Login = () => {
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <div className="input-wrapper">
-              <FiMail className="input-icon" />
               <input
                 type="email"
                 id="email"
@@ -59,7 +58,6 @@ const Login = () => {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <div className="input-wrapper">
-              <FiLock className="input-icon" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
@@ -74,7 +72,7 @@ const Login = () => {
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
+                {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
           </div>
