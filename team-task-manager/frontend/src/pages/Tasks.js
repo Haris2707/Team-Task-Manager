@@ -3,7 +3,6 @@ import { useAuth } from '../context/AuthContext';
 import { tasksAPI } from '../api/tasks';
 import { projectsAPI } from '../api/projects';
 import { authAPI } from '../api/auth';
-import { FiPlus, FiEdit2, FiTrash2, FiCalendar, FiUser, FiFlag, FiFilter } from 'react-icons/fi';
 import { format } from 'date-fns';
 import './Tasks.css';
 
@@ -176,14 +175,12 @@ const Tasks = () => {
           className="create-btn"
           onClick={() => setShowModal(true)}
         >
-          <FiPlus />
           New Task
         </button>
       </div>
 
       <div className="tasks-filters">
         <div className="filter-group">
-          <FiFilter />
           <select
             value={filters.status}
             onChange={(e) => setFilters({...filters, status: e.target.value})}
@@ -255,7 +252,6 @@ const Tasks = () => {
                     className="priority-badge"
                     style={{ backgroundColor: getPriorityColor(task.priority) }}
                   >
-                    <FiFlag />
                     {task.priority}
                   </span>
                 </div>
@@ -265,13 +261,13 @@ const Tasks = () => {
                   className="action-btn edit"
                   onClick={() => openEditModal(task)}
                 >
-                  <FiEdit2 />
+                  Edit
                 </button>
                 <button 
                   className="action-btn delete"
                   onClick={() => handleDelete(task._id)}
                 >
-                  <FiTrash2 />
+                  Delete
                 </button>
               </div>
             </div>
@@ -286,13 +282,11 @@ const Tasks = () => {
               </div>
               {task.assignedTo && (
                 <div className="meta-item">
-                  <FiUser />
                   <span>Assigned to: {task.assignedTo.name}</span>
                 </div>
               )}
               {task.dueDate && (
                 <div className="meta-item">
-                  <FiCalendar />
                   <span>Due: {format(new Date(task.dueDate), 'MMM dd, yyyy')}</span>
                 </div>
               )}
@@ -315,14 +309,12 @@ const Tasks = () => {
 
         {tasks.length === 0 && (
           <div className="empty-state">
-            <FiPlus size={48} />
             <h3>No tasks found</h3>
             <p>Create your first task or adjust your filters</p>
             <button 
               className="create-btn"
               onClick={() => setShowModal(true)}
             >
-              <FiPlus />
               Create Task
             </button>
           </div>
