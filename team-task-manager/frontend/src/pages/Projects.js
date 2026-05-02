@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { projectsAPI } from '../api/projects';
 import { authAPI } from '../api/auth';
-import { FiPlus, FiEdit2, FiTrash2, FiUsers, FiCalendar, FiUser } from 'react-icons/fi';
 import { format } from 'date-fns';
 import './Projects.css';
 
@@ -122,7 +121,6 @@ const Projects = () => {
           className="create-btn"
           onClick={() => setShowModal(true)}
         >
-          <FiPlus />
           New Project
         </button>
       </div>
@@ -146,13 +144,13 @@ const Projects = () => {
                     className="action-btn edit"
                     onClick={() => openEditModal(project)}
                   >
-                    <FiEdit2 />
+                    Edit
                   </button>
                   <button 
                     className="action-btn delete"
                     onClick={() => handleDelete(project._id)}
                   >
-                    <FiTrash2 />
+                    Delete
                   </button>
                 </div>
               )}
@@ -164,16 +162,13 @@ const Projects = () => {
 
             <div className="project-meta">
               <div className="meta-item">
-                <FiUser />
                 <span>Owner: {project.owner.name}</span>
               </div>
               <div className="meta-item">
-                <FiUsers />
                 <span>{project.members.length} members</span>
               </div>
               {project.deadline && (
                 <div className="meta-item">
-                  <FiCalendar />
                   <span>Due: {format(new Date(project.deadline), 'MMM dd, yyyy')}</span>
                 </div>
               )}
@@ -196,14 +191,12 @@ const Projects = () => {
 
         {projects.length === 0 && (
           <div className="empty-state">
-            <FiUsers size={48} />
             <h3>No projects yet</h3>
             <p>Create your first project to get started</p>
             <button 
               className="create-btn"
               onClick={() => setShowModal(true)}
             >
-              <FiPlus />
               Create Project
             </button>
           </div>
